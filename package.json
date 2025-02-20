@@ -1,0 +1,16 @@
+{
+  "name": "robo-club",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Robotics Club",
+  "license": "ISC",
+  "description": "In the Robotics club of Chittagong, we strive for innovative ideas to automate tedious things",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
