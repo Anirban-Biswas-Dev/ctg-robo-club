@@ -85,16 +85,38 @@ const members = [
         "Roll": 10087
     }
 ];
-
 const membersGrid = document.getElementById('membersGrid');
 
 members.forEach(member => {
     const memberCard = `
-        <div class="member-card">
-            <h2>${member.Name}</h2>
-            <p>Section: ${member.Section}</p>
-            <p>Roll: ${member.Roll}</p>
+        <div class="member-card animate-on-scroll">
+            <div class="card-gradient"></div>
+            <div class="card-content">
+                <h2 class="member-name">${member.Name}</h2>
+                <div class="member-divider"></div>
+                <p class="member-info"><strong>Section:</strong> ${member.Section}</p>
+                <p class="member-info"><strong>Roll:</strong> ${member.Roll}</p>
+            </div>
         </div>
     `;
     membersGrid.innerHTML += memberCard;
 });
+
+
+// Flashy Scroll Animation for Mobile
+const animateOnScroll = document.querySelectorAll('.animate-on-scroll');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+animateOnScroll.forEach(card => {
+    observer.observe(card);
+});
+
